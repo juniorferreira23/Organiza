@@ -1,3 +1,70 @@
+Link de playlist de NEXTJS: 
+https://www.youtube.com/watch?v=GjQB4aAhJ24&list=PLR8OzKI52ppWoTRvAmB_FQPPlHS0otV7V&pp=iAQB
+
+Link de tasks trello:
+https://trello.com/invite/b/66b8b236f9c65fa6c341f61f/ATTI397cf0f263d4cb96a9e546cd841e2be4DBBF5EDB/dev-organiza
+
+## Sobre o Nextjs
+
+# Roteamento
+
+O diretorio App é nosso repositório principal de criação de páginas, dentro dele podemos criar subdiretórios no qual cada pasta será considerado uma página e para que o compilador reconheça como página basta criar um arquivo page.js para os componentes da página.
+
+Já o arquivo layout.js serve para criar heranças configuraveis que uma pasta filho pode está recebendo um componente herdado.
+
+
+## Sobre o Git/Github
+
+Para os envolvidos no projeto quando forem desenvolver, basta clonar o projeto:
+
+'''
+git clone <url-github>
+'''
+
+Depois criar uma nova branch ou "linha de desenvolvimento paralelo":
+
+'''
+git checkout -b <nome_da_nova_branch>
+'''
+
+Desenvolve suas atividades nela e sobe suas modificações:
+
+'''
+git add .
+'''
+
+'''
+git commit -m <nome_do_commit>
+'''
+
+'''
+git push --set-upstream origin <nome_da_branch>
+'''
+
+*LEMBRANDO QUE CASO VOCÊ JÁ TENHA CLONADO O PROJETO E VÁ MEXER NO PROJETO EM OUTRO MOMENTO PRECISA ATUALIZAR O REPOSITORIO PRINCIPAL E CRIAR UMA NOVA BRANCH PARA QUE NÃO DÊ CONFLITO NO CÓDIGO*
+
+Indo para a branch main:
+'''
+git checkout main
+'''
+
+Recendo atualizações do repositorio main no repositorio local
+'''
+git pull
+'''
+
+Criando uma nova branch para trabalhar
+'''
+git checkout -b <nome_da_nova_branch>
+'''
+
+
+
+
+
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
