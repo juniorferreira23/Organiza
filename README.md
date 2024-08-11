@@ -5,6 +5,7 @@ https://www.youtube.com/watch?v=GjQB4aAhJ24&list=PLR8OzKI52ppWoTRvAmB_FQPPlHS0ot
 Link de tasks trello:
 https://trello.com/invite/b/66b8b236f9c65fa6c341f61f/ATTI397cf0f263d4cb96a9e546cd841e2be4DBBF5EDB/dev-organiza
 
+
 # Sobre o Git/Github
 Para os envolvidos no projeto quando forem desenvolver, basta clonar o projeto:
 
@@ -49,28 +50,17 @@ Criando uma nova branch para trabalhar
 git checkout -b <nome_da_nova_branch>
 ```
 
+
 # Iniciando o projeto
 
+## Vscode
+Recomendo instalar o pack de extensões  NextJS Developer Extensions Pack
+Após instalar desabilite a extensão Blockman - Highlight Nested Code Blocks
+
+## Instalando dependências
 ```
 npm install
 ```
-
-# Sobre o Nextjs
-
-## Roteamento
-O diretorio App é nosso repositório principal de criação de páginas, dentro dele podemos criar subdiretórios no qual cada pasta será considerado uma página e para que o compilador reconheça como página basta criar um arquivo page.js para os componentes da página.
-
-Já o arquivo layout.js serve para criar heranças configuraveis que uma pasta filho pode está recebendo um componente herdado.
-
-
-
-
-
-
-
-
-
-
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
@@ -108,3 +98,23 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+# Sobre o Nextjs
+
+## Roteamento
+O diretorio App é nosso repositório principal de criação de páginas, dentro dele podemos criar subdiretórios no qual cada pasta será considerado uma página e para que o compilador reconheça como página basta criar um arquivo page.js para os componentes da página.
+
+Já o arquivo layout.js serve para criar heranças configuraveis que uma pasta filho pode está recebendo um componente herdado.
+
+
+
+
+
+
+
+
+
+
+
+
