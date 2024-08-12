@@ -1,10 +1,9 @@
-import Image from "next/image";
+import Pagina from "./components/templates/Pagina";
 
 export default function Home() {
   return (
-    <main>
-      <p>Hello, world!</p>
-      <p>Olá, mundo!</p>
-    </main>
+    <>
+      <h1>Home</h1>
+    </>
   );
 }

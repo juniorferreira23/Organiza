@@ -1,5 +1,8 @@
 # Links de apoio
-Link de playlist de NEXTJS:
+Link projeto prático Nextjs:
+https://www.youtube.com/watch?v=mikoTbhH_Qg&t=1734s
+
+Link de playlist de Nextjs:
 https://www.youtube.com/watch?v=GjQB4aAhJ24&list=PLR8OzKI52ppWoTRvAmB_FQPPlHS0otV7V&pp=iAQB
 
 Link de tasks trello:
@@ -107,14 +110,8 @@ O diretorio App é nosso repositório principal de criação de páginas, dentro
 
 Já o arquivo layout.js serve para criar heranças configuraveis que uma pasta filho pode está recebendo um componente herdado.
 
+## Páginas server e client
 
-
-
-
-
-
-
-
-
-
+Por padrão as páginas criadas no nextjs são server side então elas atuam no lado do servidor.
+Para configurar uma página client side precisa colocar "use client" no começo do arquivo layout.js
 

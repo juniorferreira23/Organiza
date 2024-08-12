@@ -1,0 +1,1 @@
+export const listaNavegacao = ['Home', 'Investimentos', 'Perfil', 'Configurações', 'Sair']
