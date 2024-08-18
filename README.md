@@ -1,3 +1,6 @@
+shadcn
+
+
 # Links de apoio
 Link projeto prático Nextjs:
 https://www.youtube.com/watch?v=mikoTbhH_Qg&t=1734s
@@ -8,6 +11,9 @@ https://www.youtube.com/watch?v=GjQB4aAhJ24&list=PLR8OzKI52ppWoTRvAmB_FQPPlHS0ot
 Link de tasks trello:
 https://trello.com/invite/b/66b8b236f9c65fa6c341f61f/ATTI397cf0f263d4cb96a9e546cd841e2be4DBBF5EDB/dev-organiza
 
+# Documentação Tailwind para consultar as classes
+https://tailwindcss.com/docs/text-color
+
 
 # Sobre o Git/Github
 Para os envolvidos no projeto quando forem desenvolver, basta clonar o projeto:
@@ -16,7 +22,7 @@ Para os envolvidos no projeto quando forem desenvolver, basta clonar o projeto:
 git clone <url-github>
 ```
 
-Depois criar uma nova branch ou "linha de desenvolvimento paralelo":
+Criar uma nova branch ou "linha de desenvolvimento paralelo":
 
 ```
 git checkout -b <nome_da_nova_branch>
