@@ -1,6 +1,3 @@
-shadcn
-
-
 # Links de apoio
 Link projeto prático Nextjs:
 https://www.youtube.com/watch?v=mikoTbhH_Qg&t=1734s
@@ -71,9 +68,7 @@ Após instalar desabilite a extensão Blockman - Highlight Nested Code Blocks
 npm install
 ```
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
+## Iniciando no localhost:3000
 
 First, run the development server:
 
@@ -87,28 +82,6 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
-
 # Sobre o Nextjs
 
 ## Roteamento
@@ -121,3 +94,22 @@ Já o arquivo layout.js serve para criar heranças configuraveis que uma pasta f
 Por padrão as páginas criadas no nextjs são server side então elas atuam no lado do servidor.
 Para configurar uma página client side precisa colocar "use client" no começo do arquivo layout.js
 
+# Como criar os componentes
+
+No diretório app>componentes você pode criar um componente com o intuito de reutiliza-lo, segue o passo a passo:
+
+1- Criar um arquivo com o nome do componente
+2- Criar a função do componente, exemplo:
+    export default function <nome_do_componente>(props){
+        return(
+            Criar o html aqui dentro, lembrando que para deixar um componente
+            dinâmico você passa o props.<nome_do_atributo> 
+        )
+    }
+
+3- E ao instânciar o componente dentro dele passaa o atributo igual ao valor que ele irá
+    receber, exemplo:
+
+    <Componente nome="junior">
+
+4- Para estilizar o componente use documentação do tailwind acima
