@@ -1,3 +1,26 @@
+# Iniciando o projeto
+
+## Clonando o repositório
+```
+git clone https://github.com/juniorferreira23/Organiza.git
+
+```
+
+## Instalando dependências
+```
+npm install
+```
+
+## Iniciando no localhost:3000
+
+First, run the development server:
+
+```bash
+npm run dev
+```
+
+
+
 # Links de apoio
 Link projeto prático Nextjs:
 https://www.youtube.com/watch?v=mikoTbhH_Qg&t=1734s
@@ -8,6 +31,7 @@ https://www.youtube.com/watch?v=GjQB4aAhJ24&list=PLR8OzKI52ppWoTRvAmB_FQPPlHS0ot
 Link de tasks trello:
 https://trello.com/invite/b/66b8b236f9c65fa6c341f61f/ATTI397cf0f263d4cb96a9e546cd841e2be4DBBF5EDB/dev-organiza
 
+
 # Documentação Tailwind para consultar as classes
 https://tailwindcss.com/docs/text-color
 
@@ -16,7 +40,7 @@ https://tailwindcss.com/docs/text-color
 Para os envolvidos no projeto quando forem desenvolver, basta clonar o projeto:
 
 ```
-git clone <url-github>
+git clone <url_github>
 ```
 
 Criar uma nova branch ou "linha de desenvolvimento paralelo":
@@ -25,7 +49,7 @@ Criar uma nova branch ou "linha de desenvolvimento paralelo":
 git checkout -b <nome_da_nova_branch>
 ```
 
-Desenvolve suas atividades nela e sobe suas modificações:
+Desenvolve suas atividades nela e subir suas modificações:
 
 ```
 git add .
@@ -39,7 +63,7 @@ git commit -m <nome_do_commit>
 git push --set-upstream origin <nome_da_branch>
 ```
 
-*LEMBRANDO QUE CASO VOCÊ JÁ TENHA CLONADO O PROJETO E VÁ MEXER NO PROJETO EM OUTRO MOMENTO PRECISA ATUALIZAR O REPOSITORIO PRINCIPAL E CRIAR UMA NOVA BRANCH PARA QUE NÃO DÊ CONFLITO NO CÓDIGO*
+*LEMBRANDO QUE CASO VOCÊ JÁ TENHA CLONADO O PROJETO E VÁ EFETUAR NOVAS ALTERAÇÕES NO PROJETO EM OUTRO MOMENTO, PRECISARÁ ATUALIZAR O REPOSITORIO PRINCIPAL E CRIAR UMA NOVA BRANCH PARA QUE NÃO DÊ CONFLITO NO CÓDIGO*
 
 Indo para a branch main:
 ```
@@ -56,31 +80,21 @@ Criando uma nova branch para trabalhar
 git checkout -b <nome_da_nova_branch>
 ```
 
+Verificando Branchs
+```
+git branch
+```
 
-# Iniciando o projeto
+Apagando branch antiga
+```
+git branch -d <nome_da_branch>
+```
+
 
 ## Vscode
 Recomendo instalar o pack de extensões  NextJS Developer Extensions Pack
 Após instalar desabilite a extensão Blockman - Highlight Nested Code Blocks
 
-## Instalando dependências
-```
-npm install
-```
-
-## Iniciando no localhost:3000
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
 # Sobre o Nextjs
 
