@@ -35,6 +35,10 @@ https://trello.com/invite/b/66b8b236f9c65fa6c341f61f/ATTI397cf0f263d4cb96a9e546c
 # Documentação Tailwind para consultar as classes
 https://tailwindcss.com/docs/text-color
 
+# Biblioteca de componentes Daisyui
+>>> Aqui você encontrará componentes prontos
+https://daisyui.com/components/button/
+
 
 # Sobre o Git/Github
 Para os envolvidos no projeto quando forem desenvolver, basta clonar o projeto:
@@ -92,8 +96,7 @@ git branch -d <nome_da_branch>
 
 
 ## Vscode
-Recomendo instalar o pack de extensões  NextJS Developer Extensions Pack
-Após instalar desabilite a extensão Blockman - Highlight Nested Code Blocks
+Recomendo instalar as extensões Auto Close Tag, Auto import, Auto Rename Tag, Bracket Pair Color DLW, ES7+ React/Redux/React-native Snippets, ESlint, IntelliCode API Usage Examples, IntelliSense for CSS class names in HTML, npm intellisense, Prettier, Simple React Snippets, Tailwind CSS IntelliSense
 
 
 # Sobre o Nextjs
