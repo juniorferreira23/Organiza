@@ -5,12 +5,12 @@ import Button from "./Button";
 import InputEmail from "./InputEmail";
 import InputPAssword from "./inputPassword";
 import Title from "./Title";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useSearchParams } from "next/navigation";
 
 export default function FormSignIn(){
-    const router = useRouter()
-    const [error, setError] = useState()
+
+    const searchParams = useSearchParams()
+    const error = searchParams.get('error')
 
     async function login(e){
         e.preventDefault()
@@ -21,20 +21,12 @@ export default function FormSignIn(){
             password: formData.get('password')
         }
         
-        const result = await signIn("credentials", {
-            redirect: false,
+        await signIn("credentials", {
             ...data,
+            callbackUrl: '/dashboard'
         })
-
-        if(result.status == 200){
-            router.push('/dashboard')
-        }else{
-            console.log('Credenciais invalidas')
-            setError('Credenciais inválidas')
-        }
             
     }
-    
 
     return (
         <div className="flex items-center h-screen justify-center">
@@ -45,7 +37,7 @@ export default function FormSignIn(){
                 <div className="flex flex-wrap justify-center gap-4 py-2">
                     <Button name="Acessar" type="submit"/>
                     <Button name="Cadastrar" type="button"/>
-                    <span className="text-red-600">{error}</span>
+                    {error === 'CredentialsSignin' && <span className="text-red-600">Credenciais inválidas</span> }
                 </div>
             </form>
         </div>
