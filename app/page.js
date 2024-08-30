@@ -1,7 +1,14 @@
-export default function Home(){
-  return(
-    <>
-      <h1>Hello,world!</h1>
-    </>
-  )
-}
+"use client";
+
+import FormSignIn from "./components/templates/FormSignIn";
+
+export default function Login() {
+
+    return (
+      <main className="bg-blue-900 px-5">
+        <div className="container max-auto">
+          <FormSignIn/>
+        </div>
+      </main>
+    );
+  }

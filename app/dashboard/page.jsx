@@ -1,16 +1,16 @@
 import { getServerSession } from "next-auth";
-import Pagina from "../components/templates/Pagina";
 import { redirect } from "next/navigation";
+import Menu from "../components/templates/Menu";
 
 export default async function Dashboard() {
   const session = await getServerSession()
 
-  if(!session) redirect("/login")
+  if(!session) redirect('/')
 
   return (
     <>
       <div>Olá, {session?.user?.name}</div>
-      <Pagina></Pagina>
+      <Menu/>
     </>
   );
 }

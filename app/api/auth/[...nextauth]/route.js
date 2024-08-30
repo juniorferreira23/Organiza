@@ -1,10 +1,9 @@
 const { default: NextAuth } = require("next-auth/next");
 import CredentialsProvider from "next-auth/providers/credentials"
 
-
 const handler = NextAuth({
   pages: {
-      signIn: "/login"
+      signIn: "/"
   },
   providers: [
       CredentialsProvider({
@@ -14,15 +13,21 @@ const handler = NextAuth({
           password: { label: "Password", type: "password" }
         },
         async authorize(credentials) {
+          if(!credentials){
+            return null
+          }
+
           if(credentials.email === "junior.ferreira@outlook.com" && credentials.password === "123"){
               return {
                   id: "1",
                   name: "Junior",
                   email: "junior.ferreira@outlook.com"
               }
-          }else{
-            throw new Error("Credential invalid")
           }
+          // else{
+          //   throw new Error("Credential invalid")
+          // }
+          return null
         }
       })
   ]

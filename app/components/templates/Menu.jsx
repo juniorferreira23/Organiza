@@ -1,4 +1,7 @@
+'use client'
+
 import MenuItem from "./MenuItem";
+import ButtonSignOut from "./ButtonSignOut";
 import { IconHome, IconZoomMoney, IconUserCircle, IconSettings, IconLogout } from "@tabler/icons-react"
 
 export default function Menu(){
@@ -10,7 +13,7 @@ export default function Menu(){
                 <MenuItem url="/Investimentos" icone={IconZoomMoney} page="Investimentos"/>
                 <MenuItem url="/Perfil" icone={IconUserCircle} page="Perfil"/>
                 <MenuItem url="/Configurações" icone={IconSettings} page="Configurações"/>
-                <MenuItem url="/Sair" icone={IconLogout} page="Sair"/>
+                <ButtonSignOut icone={IconLogout} page="Sair"/>
             </nav>
         </aside>
     )
