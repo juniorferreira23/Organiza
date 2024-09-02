@@ -36,7 +36,7 @@ https://trello.com/invite/b/66b8b236f9c65fa6c341f61f/ATTI397cf0f263d4cb96a9e546c
 https://tailwindcss.com/docs/text-color
 
 # Biblioteca de componentes Daisyui
->>> Aqui você encontrará componentes prontos
+Aqui você encontrará componentes prontos
 https://daisyui.com/components/button/
 
 

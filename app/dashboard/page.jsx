@@ -1,6 +1,8 @@
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import Menu from "../components/templates/Menu";
+import DashboardFinance from "../components/templates/DashboardFinance";
+
 
 export default async function Dashboard() {
   const session = await getServerSession()
@@ -9,8 +11,8 @@ export default async function Dashboard() {
 
   return (
     <>
-      <div>Olá, {session?.user?.name}</div>
-      <Menu/>
+      <Menu name={session?.user?.name}/>
+      <DashboardFinance/>
     </>
   );
 }
