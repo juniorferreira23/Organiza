@@ -10,7 +10,9 @@ import TableModal from "./TableModal";
 export default function DashboardFinance(){
     const [showModal, setShowModal] = useState(false)
     const [finance, setFinance] = useState([])
-    const [entrada, setEntrada] = useState([])
+    const [entrada, setEntrada] = useState()
+    const [saida, setSaida] = useState()
+    const [total, setTotal] = useState()
 
     const handlerButtonClick = () => {
         if(!showModal){
@@ -33,20 +35,19 @@ export default function DashboardFinance(){
         }
     }
 
-    const calculateEntrada = () => {
-        const somaEntradas = finance.filter(item => item.type === "entrada")
-                   .reduce((total, item) => total + parseInt(item.value), 0);
-        
-    };
-
     useEffect(()=> {
-        console.log('entrou')
         const somaEntradas = finance.filter(item => item.type === "Entrada")
                    .reduce((total, item) => total + parseInt(item.value), 0);  
-        console.log(somaEntradas)
         setEntrada(somaEntradas)
-        console.log(entrada)
-    }, [finance, entrada])
+
+        const somaSaidas = finance.filter(item => item.type === "Saída")
+                   .reduce((total, item) => total + parseInt(item.value), 0);
+        setSaida(somaSaidas)
+
+        const somaTotal = somaEntradas - somaSaidas
+        setTotal(somaTotal)
+
+    }, [finance])
 
 
     return(
@@ -54,8 +55,8 @@ export default function DashboardFinance(){
             <section className="pt-5">
                 <div className="flex justify-center">
                     <Card title="Entradas" value={entrada} icone={IconArrowNarrowUp}/>
-                    <Card title="Saídas" value="200" icone={IconArrowNarrowDown}/>
-                    <Card title="Capital" value="800" icone={IconCoins}/>
+                    <Card title="Saídas" value={saida} icone={IconArrowNarrowDown}/>
+                    <Card title="Capital" value={total} icone={IconCoins}/>
                 </div>
                 <ButtonModal icone={IconPlus} onhandlerButtonClick={handlerButtonClick}/>
                 <Modal isOpen={showModal} onClose={handlerCloseModal} getValues={handlerValues}></Modal>
