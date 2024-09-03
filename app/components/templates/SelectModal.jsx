@@ -4,7 +4,7 @@ export default function SelectModal({value, onChange}){
             <select className="select select-bordered w-full max-w-xs bg-white" value={value} onChange={onChange}>
                 <option disabled selected>Tipo de informação?</option>
                 <option>Entrada</option>
-                <option>saída</option>
+                <option>Saída</option>
             </select>
         </div>
     )
