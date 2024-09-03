@@ -1,34 +1,37 @@
-export default function TableModal(){
+export default function TableModal(props){
     return(
         <div className="overflow-x-auto px-10 pt-10">
-            <table className="table table-zebra">
+            <table className="w-full ">
                 {/* head */}
                 <thead>
                 <tr className="text-white bg-blue-900">
                     <th>ID</th>
+                    <th>Data</th>
                     <th>Movimentação</th>
                     <th>Valor(R$)</th>
+                    <th>Observações</th>
                 </tr>
                 </thead>
                 <tbody>
+                    {
+                        props.finance.map((item, index) => (
+                            <tr key={index} className="text-center text-black">
+                                <td>{index}</td>
+                                <td>{item.date}</td>
+                                <td>{item.type}</td>
+                                <td>{item.value}</td>
+                                <td>{item.details}</td>
+                            </tr>
+                        ))
+                    }
                 {/* row 1 */}
-                <tr className="">
-                    <th>1</th>
+                {/* <tr className="text-black">
+                    <td>1</td>
                     <td>Cy Ganderton</td>
                     <td>Quality Control Specialist</td>
-                </tr>
-                {/* row 2 */}
-                <tr>
-                    <th>2</th>
-                    <td>Hart Hagerty</td>
-                    <td>Desktop Support Technician</td>
-                </tr>
-                {/* row 3 */}
-                <tr>
-                    <th>3</th>
-                    <td>Brice Swyre</td>
-                    <td>Tax Accountant</td>
-                </tr>
+                    <td>teste</td>
+                    <td>teste</td>
+                </tr> */}
                 </tbody>
             </table>
         </div>
