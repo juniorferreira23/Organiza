@@ -8,23 +8,32 @@ import Title from "./Title";
 import { useSearchParams } from "next/navigation";
 
 export default function FormSignIn(){
-
     const searchParams = useSearchParams()
     const error = searchParams.get('error')
 
     async function login(e){
         e.preventDefault()
         const formData = new FormData(e.currentTarget)
-        
-        const data = {
-            email: formData.get('email'),
-            password: formData.get('password')
+        const storage = localStorage.getItem('Users')
+        if(storage){
+            const dataStorage = storage
+            console.log(JSON.parse(dataStorage))
+
+            const data = {
+                email: formData.get('email'),
+                password: formData.get('password'),
+                database: dataStorage
+            }
+    
+    
+            // Autenticação com NEXT-AUTH
+            await signIn("credentials", {
+                ...data,
+                callbackUrl: '/dashboard',
+    
+            })
         }
         
-        await signIn("credentials", {
-            ...data,
-            callbackUrl: '/dashboard'
-        })
             
     }
 
