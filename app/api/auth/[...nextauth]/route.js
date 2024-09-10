@@ -17,15 +17,25 @@ const handler = NextAuth({
             return null
           }
 
-          if(credentials.email === "junior.ferreira@outlook.com" && credentials.password === "123"){
-              return {
-                  id: "1",
-                  name: "Junior",
-                  email: "junior.ferreira@outlook.com"
-              }
+          const storage = JSON.parse(credentials.database)
+
+          const auth = storage.find( item => item.email === credentials.email)
+          
+          if(auth){
+            return {
+              id: auth.id,
+              name: auth.name,
+              email: auth.email
+            }
           }
-          // else{
-          //   throw new Error("Credential invalid")
+
+          //OLD
+          // if(credentials.email === "teste" && credentials.password === "123"){
+          //     return {
+          //         id: "1",
+          //         name: "Junior",
+          //         email: "teste"
+          //     }
           // }
           return null
         }
