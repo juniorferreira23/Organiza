@@ -13,28 +13,25 @@ export default function FormSignIn(){
 
     async function login(e){
         e.preventDefault()
+
         const formData = new FormData(e.currentTarget)
-        const storage = localStorage.getItem('Users')
+
+        let storage = localStorage.getItem('Users')
         if(storage){
-            const dataStorage = storage
-            console.log(JSON.parse(dataStorage))
+            // console.log(JSON.parse(dataStorage))
 
             const data = {
                 email: formData.get('email'),
                 password: formData.get('password'),
-                database: dataStorage
+                database: storage
             }
-    
     
             // Autenticação com NEXT-AUTH
             await signIn("credentials", {
                 ...data,
-                callbackUrl: '/dashboard',
-    
+                callbackUrl: '/dashboard',    
             })
-        }
-        
-            
+        }    
     }
 
     return (

@@ -15,8 +15,8 @@ export default function TableModal(props){
                 <tbody>
                     {
                         props.finance.map((item, index) => (
-                            <tr key={index} className="text-center text-black">
-                                <td>{index}</td>
+                            <tr key={index + 1 } className="text-center text-black">
+                                <td>{index + 1}</td>
                                 <td>{item.date}</td>
                                 <td>{item.type}</td>
                                 <td>{item.value}</td>

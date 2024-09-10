@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import Card from "./Card";
 import { IconArrowNarrowUp, IconArrowNarrowDown, IconCoins, IconPlus } from '@tabler/icons-react';
@@ -7,12 +7,30 @@ import { useEffect, useState } from "react";
 import ButtonModal from "./ButtonModal";
 import TableModal from "./TableModal";
 
+
+const arraysAreEqual = (arr1, arr2) => {
+    if (arr1.length !== arr2.length) return false;
+    for (let i = 0; i < arr1.length; i++) {
+        if (JSON.stringify(arr1[i]) !== JSON.stringify(arr2[i])) return false;
+    }
+    return true;
+}
+
 export default function DashboardFinance(){
     const [showModal, setShowModal] = useState(false)
     const [finance, setFinance] = useState([])
     const [entrada, setEntrada] = useState()
     const [saida, setSaida] = useState()
     const [total, setTotal] = useState()
+
+    // Não apagar o comentariodo eslint 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const getStorage = () => {
+        let storage = localStorage.getItem('Transaction')
+        storage = storage ? JSON.parse(storage) : []
+        if (arraysAreEqual(storage, finance)) return null
+        setFinance(storage)
+    }
 
     const handlerButtonClick = () => {
         if(!showModal){
@@ -22,20 +40,22 @@ export default function DashboardFinance(){
         }
     }
 
-    const handlerCloseModal = () => {
-        setShowModal(false)
-    }
+    const handlerCloseModal = () => setShowModal(false)
 
-    const handlerValues = (values) => {
-        console.log(values)
+    const getValues = (values) => {
         if(values){
             setShowModal(false)
-            setFinance([...finance,values])
-            console.log(finance)
+            let database = localStorage.getItem('Transaction')
+            database = database ? JSON.parse(database) : []
+            database.push(values)
+            database = JSON.stringify(database)
+            localStorage.setItem('Transaction', database)
         }
     }
-
+    
     useEffect(()=> {
+        getStorage()
+
         const somaEntradas = finance.filter(item => item.type === "Entrada")
                    .reduce((total, item) => total + parseInt(item.value), 0);  
         setEntrada(somaEntradas)
@@ -47,7 +67,7 @@ export default function DashboardFinance(){
         const somaTotal = somaEntradas - somaSaidas
         setTotal(somaTotal)
 
-    }, [finance])
+    }, [finance, getStorage])
 
 
     return(
@@ -59,7 +79,7 @@ export default function DashboardFinance(){
                     <Card title="Capital" value={total} icone={IconCoins}/>
                 </div>
                 <ButtonModal icone={IconPlus} onhandlerButtonClick={handlerButtonClick}/>
-                <Modal isOpen={showModal} onClose={handlerCloseModal} getValues={handlerValues}></Modal>
+                <Modal showModal={showModal} handlerCloseModal={handlerCloseModal} getValues={getValues}></Modal>
                 <TableModal finance={finance}/>
             </section>
         </div>

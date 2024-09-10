@@ -3,14 +3,14 @@ import Input from "./Inpux"
 import SelectModal from "./SelectModal"
 import InputArea from "./inputArea"
 
-export default function Modal({isOpen, onClose, getValues}){
+export default function Modal({showModal, handlerCloseModal, getValues}){
     const [selectValue, setSelectValue] = useState()
     const [dateValue, setDateValue] = useState()
     const [inputValue, setInputValue] = useState()
     const [inputAreaValue, setInputAreaValue] = useState()
     const [error, setError] = useState()
 
-    if(!isOpen) return null
+    if(!showModal) return null
 
     const handlerSelect = (event) => {
         setSelectValue(event.target.value)
@@ -77,7 +77,7 @@ export default function Modal({isOpen, onClose, getValues}){
 
     const handlerClose = () => {
         setError()
-        onClose()
+        handlerCloseModal()
     }
 
     return(
