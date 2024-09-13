@@ -6,6 +6,7 @@ import Modal from "./Modal";
 import { useEffect, useState } from "react";
 import ButtonModal from "./ButtonModal";
 import TableModal from "./TableModal";
+import Subcard from "./Subcard";
 
 
 const arraysAreEqual = (arr1, arr2) => {
@@ -77,6 +78,13 @@ export default function DashboardFinance(){
                     <Card title="Entradas" value={entrada} icone={IconArrowNarrowUp}/>
                     <Card title="Saídas" value={saida} icone={IconArrowNarrowDown}/>
                     <Card title="Capital" value={total} icone={IconCoins}/>
+                </div>
+                <div className="flex justify-center">
+                    <Subcard title="Saúde" value={entrada} limit={100} icone={IconArrowNarrowUp}/>
+                    <Subcard title="Educação" value={saida} limit={100} icone={IconArrowNarrowDown}/>
+                    <Subcard title="Lazer" value={total} limit={100} icone={IconCoins}/>
+                    <Subcard title="Transporte" value={total} limit={100} icone={IconCoins}/>
+                    <Subcard title="Alimentação" value={total} limit={100} icone={IconCoins}/>
                 </div>
                 <ButtonModal icone={IconPlus} onhandlerButtonClick={handlerButtonClick}/>
                 <Modal showModal={showModal} handlerCloseModal={handlerCloseModal} getValues={getValues}></Modal>
