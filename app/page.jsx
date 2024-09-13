@@ -6,7 +6,10 @@ import FormSignIn from "./components/templates/FormSignIn";
 export default function Login() {
 
     useEffect(() => {
-      localStorage.setItem('Users', JSON.stringify([{id: '1', name: 'Teste', email: 'teste', password: 'teste'}]))
+      let storage = localStorage.getItem('Users');
+      if (!storage) {
+        localStorage.setItem('Users', JSON.stringify([{ id: '1', name: 'Teste', email: 'teste', password: 'teste' }]));
+      }
     })
 
     return (
