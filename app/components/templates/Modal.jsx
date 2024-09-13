@@ -81,10 +81,11 @@ export default function Modal({showModal, handlerCloseModal, getValues}){
     }
 
     return(
-        <div className="absolute top-20 right-1/3">
+        <div className="absolute top-10 right-1/3">
             <div className="bg-gray-400 p-10 rounded-md z-40">
                 <h1 className="text-white">Lançamento de movimentações</h1>
-                <SelectModal onChange={handlerSelect}/>
+                <SelectModal title="Tipo de movimentação:" options={['Entrada', 'Saída']} onChange={handlerSelect}/>
+                <SelectModal title="Setor do Valor:" options={['Saúde', 'Educação', 'Lazer', 'Transporte', 'Alimentação']} onChange={handlerSelect}/>
                 <Input placeholder="Data" onChange={handlerDate}/>
                 <Input placeholder="Valor" onChange={handlerInput}/>
                 <InputArea onChange={handlerInputArea}/>
