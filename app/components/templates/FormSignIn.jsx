@@ -28,25 +28,16 @@ export default function FormSignIn() {
             const data = {
                 email: formData.get('email'),
                 password: formData.get('password'), // Senha digitada
-                database: storage // Banco de dados armazenado no localStorage
+                database: storage // Banco de dados armazenado no localStorage  
             };
 
-            console.log(localStorage.getItem("Users")); // Debug para garantir que os dados estão sendo carregados
+            //console.log(localStorage.getItem("Users")); // Debug para garantir que os dados estão sendo carregados
 
             // Autenticação com NEXT-AUTH
-            const res = await signIn("credentials", {
+            await signIn("credentials", {
                 ...data,
-                redirect: false, // Impede o redirecionamento automático
                 callbackUrl: '/dashboard',    
             });
-
-            if (res?.error) {
-                console.error("Erro no login:", res.error);
-            } else {
-                console.log("Login bem-sucedido!", res);
-                // Redireciona para o dashboard após login
-                router.push("/dashboard");
-            }
         }
     }
 
