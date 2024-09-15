@@ -26,10 +26,10 @@ export default function Menu(props){
                 <ul
                     tabIndex={0}
                     className="menu menu-sm dropdown-content bg-blue-900 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                    <MenuItem url="/" icone={IconHome} page="Início"/>
+                    <MenuItem url="/dashboard" icone={IconHome} page="Início"/>
                     <MenuItem url="/Investimentos" icone={IconZoomMoney} page="Investimentos"/>
                     <MenuItem url="/Perfil" icone={IconUserCircle} page="Perfil"/>
-                    <MenuItem url="/Configurações" icone={IconSettings} page="Configurações"/>
+                    <MenuItem url="dashboard/settings" icone={IconSettings} page="Configurações"/>
                     <ButtonSignOut icone={IconLogout} page="Sair"/>
                 </ul>
                 </div>

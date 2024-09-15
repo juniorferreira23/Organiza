@@ -23,6 +23,16 @@ export default function DashboardFinance(){
     const [entrada, setEntrada] = useState()
     const [saida, setSaida] = useState()
     const [total, setTotal] = useState()
+    const [valuesSectors, setValuesSectors] = useState({})
+    const [limits, setLimits] = useState()
+
+    const handlerAlert = () => {
+        const teste = valuesSectors?.['Lazer']?.saida||0
+        const teste2 = limits?.lazer||200
+        if(teste >= teste2){
+            alert('ultrapassou o limite')
+        }
+    }
 
     // Não apagar o comentariodo eslint 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -43,6 +53,30 @@ export default function DashboardFinance(){
 
     const handlerCloseModal = () => setShowModal(false)
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const getValuesSectors = () => {
+        const result = finance.reduce((acc, { type, sector, value }) => {
+            // Converta o valor para número
+            const valorNumerico = parseFloat(value);
+        
+            // Inicialize o sector no acumulador, se ainda não estiver
+            if (!acc[sector]) {
+            acc[sector] = { entrada: 0, saida: 0 };
+            }
+        
+            // Acumule os valores com base na movimentação
+            if (type === 'Entrada') {
+            acc[sector].entrada += valorNumerico;
+            } else if (type === 'Saída') {
+            acc[sector].saida += valorNumerico;
+            }
+
+            return acc
+        }, {});
+        if(JSON.stringify(valuesSectors) === JSON.stringify(result)) return null
+        setValuesSectors(result)
+    }
+
     const getValues = (values) => {
         if(values){
             setShowModal(false)
@@ -53,9 +87,31 @@ export default function DashboardFinance(){
             localStorage.setItem('Transaction', database)
         }
     }
+
+    const deleteRegister = (id) => {
+        console.log('ta funcionando' + id)
+        let database = localStorage.getItem('Transaction')
+        database = database ? JSON.parse(database) : []
+        database = database.filter((item, index) => index !== id - 1);
+        database = JSON.stringify(database)
+        localStorage.setItem('Transaction', database)
+        getStorage()
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const getLimits = () => {
+        let storage = localStorage.getItem('Limits')
+        storage = storage ? JSON.parse(storage) : []
+        if (JSON.stringify(storage) === JSON.stringify(limits)) return null
+        setLimits(storage)
+    }
+
+
     
     useEffect(()=> {
         getStorage()
+        getLimits()
+        handlerAlert()
 
         const somaEntradas = finance.filter(item => item.type === "Entrada")
                    .reduce((total, item) => total + parseInt(item.value), 0);  
@@ -64,11 +120,13 @@ export default function DashboardFinance(){
         const somaSaidas = finance.filter(item => item.type === "Saída")
                    .reduce((total, item) => total + parseInt(item.value), 0);
         setSaida(somaSaidas)
-
+        
         const somaTotal = somaEntradas - somaSaidas
         setTotal(somaTotal)
 
-    }, [finance, getStorage])
+        getValuesSectors()
+
+    }, [finance, getStorage, getLimits, getValuesSectors])
 
 
     return(
@@ -80,15 +138,15 @@ export default function DashboardFinance(){
                     <Card title="Capital" value={total} icone={IconCoins}/>
                 </div>
                 <div className="flex justify-center">
-                    <Subcard title="Saúde" value={entrada} limit={100} icone={IconArrowNarrowUp}/>
-                    <Subcard title="Educação" value={saida} limit={100} icone={IconArrowNarrowDown}/>
-                    <Subcard title="Lazer" value={total} limit={100} icone={IconCoins}/>
-                    <Subcard title="Transporte" value={total} limit={100} icone={IconCoins}/>
-                    <Subcard title="Alimentação" value={total} limit={100} icone={IconCoins}/>
+                    <Subcard title="Saúde" value={valuesSectors?.['Saúde']?.saida||0} limit={limits?.saude||200} icone={IconArrowNarrowUp}/>
+                    <Subcard title="Educação" value={valuesSectors?.['Educação']?.saida||0} limit={limits?.educacao||200} icone={IconArrowNarrowDown}/>
+                    <Subcard title="Lazer" value={valuesSectors?.['Lazer']?.saida||0} limit={limits?.lazer||200} icone={IconCoins}/>
+                    <Subcard title="Transporte" value={valuesSectors?.['Transporte']?.saida||0} limit={limits?.transporte||200} icone={IconCoins}/>
+                    <Subcard title="Alimentação" value={valuesSectors?.['Alimentação']?.saida||0} limit={limits?.alimentacao||200} icone={IconCoins}/>
                 </div>
                 <ButtonModal icone={IconPlus} onhandlerButtonClick={handlerButtonClick}/>
                 <Modal showModal={showModal} handlerCloseModal={handlerCloseModal} getValues={getValues}></Modal>
-                <TableModal finance={finance}/>
+                <TableModal finance={finance} deleteRegister={deleteRegister}/>
             </section>
         </div>
     )

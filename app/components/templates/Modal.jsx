@@ -1,10 +1,11 @@
 import { useState } from "react"
-import Input from "./Inpux"
+import Input from "./Input"
 import SelectModal from "./SelectModal"
 import InputArea from "./inputArea"
 
 export default function Modal({showModal, handlerCloseModal, getValues}){
     const [selectValue, setSelectValue] = useState()
+    const [selectValueSector, setSelectValueSector] = useState()
     const [dateValue, setDateValue] = useState()
     const [inputValue, setInputValue] = useState()
     const [inputAreaValue, setInputAreaValue] = useState()
@@ -14,6 +15,11 @@ export default function Modal({showModal, handlerCloseModal, getValues}){
 
     const handlerSelect = (event) => {
         setSelectValue(event.target.value)
+        // console.log(selectValue)
+    }
+
+    const handlerSelectSector = (event) => {
+        setSelectValueSector(event.target.value)
         // console.log(selectValue)
     }
 
@@ -62,16 +68,19 @@ export default function Modal({showModal, handlerCloseModal, getValues}){
 
         const values = {
             type: selectValue,
+            sector: selectValueSector,
             date: dateValue,
             value: inputValue,
             details: inputAreaValue
         }
 
         setSelectValue('')
+        setSelectValueSector('')
         setDateValue('')
         setInputValue('')
         setInputAreaValue('')
 
+        // console.log(values)
         return values
     }
 
@@ -85,7 +94,7 @@ export default function Modal({showModal, handlerCloseModal, getValues}){
             <div className="bg-gray-400 p-10 rounded-md z-40">
                 <h1 className="text-white">Lançamento de movimentações</h1>
                 <SelectModal title="Tipo de movimentação:" options={['Entrada', 'Saída']} onChange={handlerSelect}/>
-                <SelectModal title="Setor do Valor:" options={['Saúde', 'Educação', 'Lazer', 'Transporte', 'Alimentação']} onChange={handlerSelect}/>
+                <SelectModal title="Setor do Valor:" options={['Saúde', 'Educação', 'Lazer', 'Transporte', 'Alimentação']} onChange={handlerSelectSector}/>
                 <Input placeholder="Data" onChange={handlerDate}/>
                 <Input placeholder="Valor" onChange={handlerInput}/>
                 <InputArea onChange={handlerInputArea}/>
